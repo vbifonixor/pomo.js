@@ -1,0 +1,14 @@
+.timer {
+	.timer-minutes {
+
+	}
+	.timer-seconds {
+
+	}
+	.timer-minutes .timer-seconds {
+		display: inline-block;
+		width: 100px;
+		height: 100px;
+		background-color: #f2f3f2;
+	}
+}
