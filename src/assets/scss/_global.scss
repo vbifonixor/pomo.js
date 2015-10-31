@@ -1,1 +1,58 @@
 // Global styles
+@import "../fonts/josefinsans.css";
+
+* {
+	font-family: "josefin_sans";
+	color: #fefaff;
+	box-sizing: border-box;
+}
+
+.logo {
+	font-weight: 400;
+	font-size: 40px;
+	width: 20%;
+}
+
+header {
+	padding: 25px;
+	height: 90px;
+	& > * {
+		display: inline-block;
+		// @include vertical-align;
+	}
+	@include clearfix;
+}
+
+input[type="text"] {
+	background-color: rgba(0,0,0,0);
+	border: none;
+	outline: none;
+	padding: 10px;
+	border-bottom: 1px solid #fff;
+}
+
+body {
+	@include background-image(linear-gradient(to top right, #2099ff, #4e3be7));
+	background-repeat: no-repeat;
+}
+
+a {
+	text-decoration: none;
+	&:active, &:link, &:hover, &:visited {
+		color: #fff;
+	}
+}
+
+ul > li {
+	list-style-type: none;
+	display: inline-block;
+}
+
+nav {
+	float: right;
+}
+
+nav > ul > li {
+	font-size: 18px;
+	margin: 0 20px;
+}
