@@ -3,7 +3,8 @@
 (function ($) {
 	'use strict';
 
-	VMasker(document.querySelector(".main-timer")).maskPattern('99:99');
-	VMasker(document.querySelector(".short-break")).maskPattern('99:99');
-	VMasker(document.querySelector(".long-break")).maskPattern('99:99');
+	$.mask.definitions['5'] = "[0-5]";
+	$(".main-timer").mask('59:59', {placeholder: "  :  "});
+	$(".short-break").mask('59:59', {placeholder: "  :  "});
+	$(".long-break").mask('59:59', {placeholder: "  :  "});
 })(jQuery);

@@ -1,6 +1,11 @@
 // Global styles
 @import "../fonts/josefinsans.css";
 
+::selection {
+	background-color: #fff;
+	color: #4e3be7;
+}
+
 * {
 	font-family: "josefin_sans";
 	color: #fefaff;
@@ -18,7 +23,6 @@ header {
 	height: 90px;
 	& > * {
 		display: inline-block;
-		// @include vertical-align;
 	}
 	@include clearfix;
 }
@@ -55,4 +59,24 @@ nav {
 nav > ul > li {
 	font-size: 18px;
 	margin: 0 20px;
+}
+
+section.timer {
+	width: 450px;
+	height: 450px;
+	@include border-radius(50%);
+	background: rgba(0,0,0,.3);
+	position: absolute;
+	top: calc(50% - 225px);
+	left: calc(50% - 225px);
+	.time-setter {
+		text-align: center;
+		width: 25%;
+		margin: 0 auto;
+		float: left;
+		input {
+		    width: 65px;
+		    text-align: center;
+		}
+	}
 }
