@@ -62,24 +62,25 @@ nav > ul > li {
 }
 
 section.timer {
-	width: 500px;
-	height: 500px;
+	width: 550px;
+	height: 550px;
 	@include border-radius(50%);
-	background: rgba(0,0,0,.3);
+	background: rgba(0,0,0,.5);
 	position: absolute;
-	top: calc(50% - 250px);
-	left: calc(50% - 250px);
+	top: calc(50% - 275px);
+	left: calc(50% - 275px);
+	@include single-box-shadow(0,0,50px, 0, rgba(0,0,0,.25), null);
 	.setters{
 		@include flexbox((
 			display: flex,
 			flex-direction: row,
 			justify-content: center
 		));
-		margin-top: 70px;
+		margin-top: 65px;
 
 		.time-setter {
 			text-align: center;
-			width: 22%;
+			width: 19%;
 			span {
 				font-size: 14px;
 				display: block;
@@ -93,11 +94,22 @@ section.timer {
 		}
 	}
 	.task-name {
-		width: 65%;
+		width: 69%;
 		text-align: center;
 		font-size: 30px;
 		display: block;
 		margin: 0 auto;
-		margin-top: 10px;
+		margin-top: 15px;
+	}
+	.clock {
+		text-align: center;
+		width: 90%;
+		margin: 15px auto;
+		font-size: 100px;
+		font-weight: 100;
+		background: rgba(0,0,0,.15);
+		@include border-radius(120px);
+		@include single-box-shadow(0,0,50px, 0, rgba(0,0,0,.15), null);
+		padding-bottom: 8px;
 	}
 }
