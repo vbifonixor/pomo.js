@@ -20,13 +20,31 @@
 
 	<section class="timer">
 		<div class="setters">
-			<div class="time-setter"><span>Main timer</span><input type="text" class="main-timer" value="2500"></div>
-			<div class="time-setter"><span>Short break</span><input type="text" class="short-break" value="0500"></div>
-			<div class="time-setter"><span>Long break</span><input type="text" class="long-break" value="1500"></div>
+			<div class="time-setter"><span>Main timer</span><input type="text" data-timer="main" value="2500"></div>
+			<div class="time-setter"><span>Short break</span><input type="text" data-timer="short" value="0500"></div>
+			<div class="time-setter"><span>Long break</span><input type="text" data-timer="long" value="1500"></div>
 		</div>
 		<input type="text" class="task-name" placeholder="I am doing...">
 		<div class="clock">25:00</div>
+		<div class="controls">
+			<div class="button" data-btn="start">Start</div>
+			<div class="button" data-btn="reset">Reset</div>
+		</div>
+		<div class="settings">
+		<div class="nonstop-check">
+			<input type="checkbox" data-option="nonstop" id="nonstop" checked>
+			<label for="nonstop" class="checkbox-img"></label>
+			<label for="nonstop" class="checkbox-label">non-stop</label>
+		</div>
+		<div class="sound-check">
+			<input type="checkbox" data-option="sound" id="sound">
+			<label for="sound" class="sound-icon"></label>
+		</div>
+		</div>
 	</section>
+	<footer>
+		by <a href="http://github.com/vbifonixor">vbifonixor</a>
+	</footer>
 	<script src="assets/js/lib/jquery-1.11.1.min.js"></script>
 	<script src="assets/js/lib/jquery.maskedinput.min.js"></script>
 	<script src="assets/js/global.js"></script>

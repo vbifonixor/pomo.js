@@ -31,7 +31,7 @@ module.exports = function(grunt) {
 			},
 			html: {
 				files: '<%= sourcePath %>/*.html',
-				tasks: ['assemble', 'prettify:dist']
+				tasks: ['prettify:dist']
 			}
 		},
 
@@ -92,22 +92,6 @@ module.exports = function(grunt) {
 			}
 		},
 
-		assemble: {
-		  options: {
-				assets: '<%= distPath %>/<%= assetDir %>',
-				layoutdir: '<%= sourcePath %>/<%= templateDir %>/layouts',
-				partials: ['<%= sourcePath %>/<%= templateDir %>/partials/**/*.hbs'],
-				flatten: true,
-		  },
-		  site: {
-				options: {
-					layout: 'default.hbs'
-				},
-				src: ['<%= sourcePath %>/<%= templateDir %>/*.hbs'],
-				dest: '<%= distPath %>'
-		  }
-		},
-
 		copy: {
 			assets: {
 				files: [{
@@ -144,8 +128,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-prettify');
 	grunt.loadNpmTasks('grunt-banner');
 	grunt.loadNpmTasks('grunt-smushit');
-	grunt.loadNpmTasks('assemble');
 
-	grunt.registerTask('default', ['uglify', 'compass', 'assemble', 'prettify:dist', 'copy:assets', 'usebanner']);
+	grunt.registerTask('default', ['uglify', 'compass', 'prettify:dist', 'copy:assets', 'usebanner']);
 
 };
