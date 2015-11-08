@@ -2,202 +2,234 @@
 @import "../fonts/josefinsans.css";
 
 ::selection {
-	background-color: #fff;
-	color: #4e3be7;
+    background-color: #fff;
+    color: #4e3be7;
 }
 
 * {
-	font-family: "josefin_sans";
-	color: #fefaff;
-	box-sizing: border-box;
+    box-sizing: border-box;
+    color: #fefaff;
+    font-family: "josefin_sans";
 }
 
 .logo {
-	font-weight: 300;
-	font-size: 40px;
-	width: 20%;
+    font-size: 40px;
+    font-weight: 300;
+    width: 20%;
 }
 
 header {
-	padding: 25px;
-	height: 90px;
-	& > * {
-		display: inline-block;
-	}
-	@include clearfix;
+    height: 90px;
+    padding: 25px;
+
+    & > * {
+        display: inline-block;
+    }
+
+    @include clearfix;
 }
 
 input[type="text"] {
-	background-color: rgba(0,0,0,0);
-	border: none;
-	outline: none;
-	padding: 10px;
-	border-bottom: 1px solid #fff;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    padding: 10px;
 }
 
 body {
-	@include background-image(linear-gradient(to top right, #2099ff, #4e3be7));
-	background-repeat: no-repeat;
+    background-repeat: no-repeat;
+
+    @include background-image(linear-gradient(to top right, #2099ff, #4e3be7));
 }
 
 a {
-	text-decoration: none;
-	&:active, &:link, &:hover, &:visited {
-		color: #fff;
-	}
+    text-decoration: none;
+
+    &:active, &:link, &:hover, &:visited {
+        color: #fff;
+    }
 }
 
 ul > li {
-	list-style-type: none;
-	display: inline-block;
+    display: inline-block;
+    list-style-type: none;
 }
 
 nav {
-	float: right;
+    float: right;
 }
 
 nav > ul > li {
-	font-size: 18px;
-	margin: 0 20px;
+    font-size: 18px;
+    margin: 0 20px;
 }
 
 section.timer {
-	width: 550px;
-	height: 550px;
-	@include border-radius(50%);
-	background: rgba(0,0,0,.5);
-	position: absolute;
-	top: calc(50% - 275px);
-	left: calc(50% - 275px);
-	@include single-box-shadow(0,0,50px, 0, rgba(0,0,0,.25), null);
-	.setters{
-		@include flexbox((
-			display: flex,
-			flex-direction: row,
-			justify-content: center
-		));
-		margin-top: 65px;
+    height: 550px;
+    width: 550px;
 
-		.time-setter {
-			text-align: center;
-			width: 19%;
-			span {
-				font-size: 14px;
-				display: block;
-			}
-			input {
-			    width: 45px;
-			    padding: 10px 0;
-			    text-align: center;
-			    font-size: 16px;
-			}
-		}
-	}
-	.task-name {
-		width: 69%;
-		text-align: center;
-		font-size: 30px;
-		display: block;
-		margin: 0 auto;
-		margin-top: 10px;
-		margin-bottom: 25px;
-	}
-	.clock {
-		text-align: center;
-		width: 90%;
-		margin: 15px auto;
-		font-size: 84px;
-		font-weight: 100;
-		background: rgba(0,0,0,.15);
-		@include border-radius(120px);
-		@include single-box-shadow(0,0,50px, 0, rgba(0,0,0,.15), null);
-		padding-top: 13px; // 7px difference because of font digits
-		padding-bottom: 20px;
-	}
-	.controls {
-		margin-top: 40px;
-		@include flexbox((
-			display: flex,
-			flex-direction: row,
-			justify-content: center
-		));
-		.button {
-			display: inline-block;
-			padding: 7px 35px;
-			background: rgba(0,0,0,.3);
-			font-size: 20px;
-			@include border-radius(20px);
-			margin-left: 35px;
-			&:first-child {
-				margin: 0;
-			}
-			cursor: pointer;
-		}		
-	}
-	.settings {
-		margin-top: 30px;
-		height: 24px;
-		@include flexbox((
-			display: flex,
-			flex-direction: row,
-			justify-content: center
-		));
-		input[type="checkbox"] {
-			display: none;
-		}
-		label {
-			cursor: pointer;
-		}
-		.nonstop-check {
-			.checkbox-img {
-				width: 20px;
-				height: 20px;
-				@include border-radius(100%);
-				background: rgba(0,0,0,.3);
-				display: inline-block;
-				float: left;
-				margin-right: 10px;
-				margin-top: 2px;
-			}	
-			input[type="checkbox"]:checked + .checkbox-img {
-				background-image: url('../img/basic14.png');
-				@include background-size(10px 10px);
-				background-repeat: no-repeat;
-				background-position: center;
-			}
-			.checkbox-label {
-				font-size: 16px;
-			}
-		}
-		.sound-check {
-			margin-left: 120px;
-			.sound-icon {
-				width: 24px;
-				height: 24px;
-				display: inline-block;
-				background-image: url('../img/speaker113_off.png');
-				opacity: .4;
-				&:hover {
-					opacity: .5;
-				}
-			}
-			input[type="checkbox"]:checked + .sound-icon {
-				opacity: .7;
-				&:hover {
-					opacity: .7;
-				}
-			}
-		}
-	}
+    @include border-radius(50%);
+
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: calc(50% - 275px);
+    left: calc(50% - 275px);
+
+    @include single-box-shadow(0, 0, 50px, 0, rgba(0, 0, 0, 0.25), null);
+}
+
+.setters {
+    @include flexbox((display: flex, flex-direction: row, justify-content: center));
+
+    margin-top: 65px;
+
+    .time-setter {
+        text-align: center;
+        width: 19%;
+
+        span {
+            font-size: 14px;
+            display: block;
+        }
+
+        input {
+            width: 45px;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 16px;
+        }
+    }
+}
+
+.task-name {
+    width: 69%;
+    text-align: center;
+    font-size: 30px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.clock {
+    text-align: center;
+    width: 90%;
+    margin: 15px auto;
+    font-size: 84px;
+    font-weight: 100;
+    background: rgba(0, 0, 0, 0.15);
+
+    @include border-radius(120px);
+
+    @include single-box-shadow(0, 0, 50px, 0, rgba(0, 0, 0, 0.15), null);
+
+    padding-top: 13px;
+
+    // 7px difference because of font digits
+    padding-bottom: 20px;
+}
+
+.controls {
+    margin-top: 40px;
+
+    @include flexbox((display: flex, flex-direction: row, justify-content: center));
+
+    .button {
+        display: inline-block;
+        padding: 7px 35px;
+        background: rgba(0, 0, 0, 0.3);
+        font-size: 20px;
+
+        @include border-radius(20px);
+
+        margin-left: 35px;
+
+        &:first-child {
+            margin: 0;
+        }
+
+        cursor: pointer;
+    }
+}
+
+.settings {
+    margin-top: 30px;
+    height: 24px;
+
+    @include flexbox((display: flex, flex-direction: row, justify-content: center));
+
+    input[type="checkbox"] {
+        display: none;
+    }
+
+    label {
+        cursor: pointer;
+    }
+
+}
+
+.nonstop-check {
+    .checkbox-img {
+        width: 20px;
+        height: 20px;
+
+        @include border-radius(100%);
+
+        background: rgba(0, 0, 0, 0.3);
+        display: inline-block;
+        float: left;
+        margin-right: 10px;
+        margin-top: 2px;
+    }
+
+    input[type="checkbox"]:checked + .checkbox-img {
+        background-image: url("../img/basic14.png");
+
+        @include background-size(10px 10px);
+
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .checkbox-label {
+        font-size: 16px;
+    }
+}
+
+.sound-check {
+    margin-left: 120px;
+
+    .sound-icon {
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        background-image: url("../img/speaker113_off.png");
+        opacity: .4;
+
+        &:hover {
+            opacity: .5;
+        }
+    }
+
+    input[type="checkbox"]:checked + .sound-icon {
+        opacity: .7;
+
+        &:hover {
+            opacity: .7;
+        }
+    }
 }
 
 footer {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	padding-bottom: 15px;
-	text-align: center;
-	a {
-		text-decoration: underline;
-	}
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-bottom: 15px;
+    text-align: center;
+    font-size: 14px;
+
+    a {
+        text-decoration: underline;
+    }
 }

@@ -5,22 +5,7 @@
        	"elements/normalize";
 
 // Variables/Mixins/Functions
-@import "variables",
-        "utilities/utilities";
-
-// Site elements
-@import "elements/font-icons",
-        "elements/buttons",
-        "elements/forms";
+@import "utilities/utilities";
 
 // Global styles
 @import "global";
-
-// Partial styles
-// @import "partials/header";
-
-// Page styles
-// @import "pages/homepage";
-
-// Media Queries
-@import "media-queries";
