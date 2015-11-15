@@ -41,6 +41,29 @@ body {
     background-repeat: no-repeat;
 
     @include background-image(linear-gradient(to top right, #2099ff, #4e3be7));
+
+    background-size: 200% 200%;
+    @include animation( pomoGradient 10s ease infinite );
+	@-webkit-keyframes pomoGradient {
+	    0%{background-position:0% 50%}
+	    50%{background-position:100% 50%}
+	    100%{background-position:0% 50%}
+	}
+	@-moz-keyframes pomoGradient {
+	    0%{background-position:0% 50%}
+	    50%{background-position:100% 50%}
+	    100%{background-position:0% 50%}
+	}
+	@-o-keyframes pomoGradient {
+	    0%{background-position:0% 50%}
+	    50%{background-position:100% 50%}
+	    100%{background-position:0% 50%}
+	}
+	@keyframes pomoGradient {
+	    0%{background-position:0% 50%}
+	    50%{background-position:100% 50%}
+	    100%{background-position:0% 50%}
+	}
 }
 
 a {

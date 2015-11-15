@@ -20,7 +20,7 @@
 			   };
 
 	// Helper functions and variables
-	pomo.helpers.isGoing = 0;
+	pomo.helpers.isGoing = false;
 	pomo.helpers.timeFromText = function(text) {
 		return text.split(":").map( function (timeStr) { return parseInt(timeStr); } );
 	}
@@ -47,39 +47,62 @@
 		return true;
 	}
 
-	// Methods
-	pomo.m.isPaused = function() {
-		return pomo.dom.startPauseBtn.attr("pomo-btn") == "start" ? true : false;
-	}
-	pomo.m.isStarted = function() {
-		return !pomo.helpers.arraysAreEqual(pomo.time.mainBefore.length ? pomo.time.mainBefore : pomo.time.main, pomo.helpers.timeFromText(pomo.dom.face.text()));
-	}
 
 	pomo.m.beep = function() {
 		return true;
 	}
 
 	pomo.m.start = function() {
-		if (pomo.helpers.arraysAreEqual(pomo.currentTime.time.data, [])) {
-			pomo.currentTime.cycle = "main";
-			pomo.currentTime.time.data = pomo.time.main;
-		};
+		pomo.m.isGoing = true;
+		pomo.dom.startPauseBtn.attr("pomo-btn", "pause").text("Pause");
 		pomo.helpers.interval = setInterval(function () {
+			if (pomo.helpers.arraysAreEqual(pomo.currentTime.time.data, [])) {
+				pomo.currentTime.cycle = "main";
+				pomo.currentTime.time.data = pomo.time.main.slice();
+			};
 			// Countdown goes here
 			pomo.dom.face.text(pomo.helpers.textFromTime(pomo.currentTime.time.data));
 			if(!pomo.currentTime.time.decrease()) {
-				pomo.m.beep();
+				if (!pomo.settings.mute) {
+					pomo.m.beep();
+				}
+				if (!pomo.settings.nonstop) {
+					pomo.m.pause();
+				}
 				pomo.currentTime.seqNo += 1;
 				pomo.currentTime.seqNo %= 8;
 				pomo.currentTime.cycle = pomo.seq[pomo.currentTime.seqNo];
-				pomo.currentTime.data = pomo.time[pomo.currentTime.cycle];
+				pomo.currentTime.time.data = pomo.time[pomo.currentTime.cycle];
 			}
 		}, 1000)
 		return true;
 	}
 	pomo.m.pause = function() {
-		clearInterval(pomo.helpers.interval);
-		return true;
+		if (pomo.m.isGoing) {
+			pomo.m.isGoing = false;
+			pomo.dom.startPauseBtn.attr("pomo-btn", "start").text("Start");
+			clearInterval(pomo.helpers.interval);
+			return true;
+		}
+		return false;
+	}
+
+	pomo.m.reset = function() {
+		pomo.m.pause(); // Pausing the timer
+
+		pomo.currentTime.cycle = "main"; // Back to defaults in currentTime object
+		pomo.currentTime.seqNo = 0;
+		pomo.currentTime.time.data = [];
+
+		// Resetting time settings
+		pomo.time = {
+			mainBefore: [],
+			main: pomo.helpers.timeFromInput(pomo.dom.timeInputs.main),
+			short: pomo.helpers.timeFromInput(pomo.dom.timeInputs.short),
+			long: pomo.helpers.timeFromInput(pomo.dom.timeInputs.long) 
+		};
+
+		pomo.dom.face.text(pomo.helpers.textFromTime(pomo.time.main)); // Resetting the clockface
 	}
 
 
@@ -138,18 +161,17 @@
 
 	// Updating setups with inputs
 	$("[pomo-timer]").on("change", function () {
+		pomo.m.reset();
 		pomo.time.mainBefore = pomo.time.main;
 		pomo.time[$(this).attr("pomo-timer")] = pomo.helpers.timeFromInput($(this));
-		console.log(pomo); //d
 	})
 	$("[pomo-option]").on("change", function () {
 		pomo.settings[$(this).attr("pomo-option")] = $(this)[0].checked;
-		console.log(pomo); //d
 	})
 
 	// Updating clock face with input
 	pomo.dom.timeInputs.main.on("change", function () {
-		if (!pomo.m.isStarted()){
+		if (!pomo.m.isGoing){
 			pomo.dom.face.text(pomo.helpers.textFromTime(pomo.time.main));
 		}
 	});
@@ -157,14 +179,16 @@
 	// Button events
 	pomo.dom.startPauseBtn.on('click', function() {
 		if (pomo.dom.startPauseBtn.attr("pomo-btn") === "start") {
-			pomo.dom.startPauseBtn.attr("pomo-btn", "pause").text("Pause");
 			pomo.m.start();
 		}
 		else {
-			pomo.dom.startPauseBtn.attr("pomo-btn", "start").text("Start");
 			pomo.m.pause();
 		}
 	});
+
+	pomo.dom.resetBtn.on('click', function() {
+		pomo.m.reset();
+	})
 
 	console.log(pomo); //d
 	exports.pomo = pomo;
