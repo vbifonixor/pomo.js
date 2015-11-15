@@ -17,6 +17,9 @@
 				 settings: {}, 
 				 dom: {},
 				 seq: ["main", "short", "main", "short", "main", "short", "main", "long"],
+				 sound: new Howl({
+				 	urls: ["assets/mp3/beep.mp3"]
+				 })
 			   };
 
 	// Helper functions and variables
@@ -49,6 +52,7 @@
 
 
 	pomo.m.beep = function() {
+		pomo.sound.play();
 		return true;
 	}
 
