@@ -41,9 +41,6 @@
 		if (firstArr == null || secondArr == null) return false;
 		if (firstArr.length != secondArr.length) return false;
 
-		// If you don't care about the order of the elements inside
-		// the array, you should sort both arrays here.
-
 		for (var i = 0; i < firstArr.length; ++i) {
 		if (firstArr[i] !== secondArr[i]) return false;
 		}
@@ -66,6 +63,7 @@
 			};
 			// Countdown goes here
 			pomo.dom.face.text(pomo.helpers.textFromTime(pomo.currentTime.time.data));
+			$('title').text(pomo.helpers.textFromTime(pomo.currentTime.time.data) + " - Pomo.js");
 			if(!pomo.currentTime.time.decrease()) {
 				if (!pomo.settings.mute) {
 					pomo.m.beep();
