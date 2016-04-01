@@ -1,5 +1,5 @@
 // Global styles
-@import "../fonts/josefinsans.css";
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:400,100,100italic,300,300italic,400italic,600,600italic,700,700italic);
 
 ::selection {
     background-color: #fff;
@@ -9,7 +9,7 @@
 * {
     box-sizing: border-box;
     color: #fefaff;
-    font-family: "josefin_sans";
+    font-family: "Josefin Sans";
 }
 
 .logo {

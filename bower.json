@@ -1,0 +1,26 @@
+{
+  "name": "test",
+  "description": "",
+  "main": "main.js",
+  "authors": [
+    "Mikhail Kononenko <vbifonixor@gmail.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [
+    "amd"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.2",
+    "jquery.maskedinput": "^1.4.1",
+    "howler.js": "howler#^1.1.29"
+  }
+}

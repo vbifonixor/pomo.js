@@ -18,14 +18,14 @@
 				 dom: {},
 				 seq: ["main", "short", "main", "short", "main", "short", "main", "long"],
 				 sound: new Howl({
-				 	urls: ["assets/mp3/beep.mp3"]
+				 	urls: ["app/mp3/beep.mp3"]
 				 })
 			   };
 
 	// Helper functions and variables
 	pomo.helpers.isGoing = false;
 	pomo.helpers.timeFromText = function(text) {
-		return text.split(":").map( function (timeStr) { return parseInt(timeStr); } );
+		return text.split(":").map( function (timeStr) { return (parseInt(timeStr)); } );
 	}
 	pomo.helpers.timeFromInput = function(input) { 
 		return pomo.helpers.timeFromText(input.val());

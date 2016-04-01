@@ -1,21 +1,21 @@
 {
-  "name": "pomo.js",
-  "description": "",
-  "version": "0.1.0",
-  "private": true,
+  "name": "lightbulb",
+  "version": "1.1.0",
+  "description": "Another Themeforest Wordpress Theme",
+  "main": "index.html",
   "scripts": {
-    "postinstall": "grunt"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "author": "Mikhail Kononenko",
+  "license": "ISC",
   "devDependencies": {
-    "grunt": "~0.4.2",
-    "grunt-contrib-compass": "~0.7.0",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-contrib-uglify": "~0.2.7",
-    "grunt-smushit": "~1.1.2",
-    "grunt-banner": "~0.2.2",
-    "grunt-contrib-clean": "~0.5.0",
-    "assemble": "~0.4.37",
-    "grunt-contrib-copy": "~0.5.0",
-    "grunt-prettify": "~0.3.4"
+    "compass-importer": "^0.1.3",
+    "gulp": "^3.9.0",
+    "gulp-connect": "^2.3.1",
+    "gulp-csso": "^1.0.1",
+    "gulp-for-compass": "0.0.2",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-sass": "^2.1.1",
+    "gulp-uglify": "^1.5.1"
   }
 }
