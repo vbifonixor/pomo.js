@@ -74,7 +74,7 @@
 				pomo.currentTime.seqNo += 1;
 				pomo.currentTime.seqNo %= 8;
 				pomo.currentTime.cycle = pomo.seq[pomo.currentTime.seqNo];
-				pomo.currentTime.time.data = pomo.time[pomo.currentTime.cycle];
+				pomo.currentTime.time.data = pomo.time[pomo.currentTime.cycle].slice();
 			}
 		}, 1000)
 		return true;
@@ -165,7 +165,9 @@
 	$("[pomo-timer]").on("change", function () {
 		pomo.m.reset();
 		pomo.time.mainBefore = pomo.time.main;
+		console.log(pomo.helpers.timeFromInput($(this)));
 		pomo.time[$(this).attr("pomo-timer")] = pomo.helpers.timeFromInput($(this));
+		console.log(pomo.time)
 	})
 	$("[pomo-option]").on("change", function () {
 		pomo.settings[$(this).attr("pomo-option")] = $(this)[0].checked;
